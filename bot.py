@@ -10,7 +10,7 @@ from discord.ext import commands, tasks
 
 intents = discord.Intents.default()
 intents.members = True
-TOKEN = 'OTEyMDU1Nzg2Njk4NjAwNTEw.YZqYJA.-dmXGUlqMDtXflWnHw8p5Jln5yc'
+TOKEN = 'YOUR-DISCORD-TOKEN'
 bot = commands.Bot(command_prefix='.')
 client = discord.Client()
 
@@ -24,8 +24,8 @@ async def on_ready():
 
 # @client.event
 # async def on_member_join(member):
-#     gluid = client.get_guild(912057316705189931)
-#     channel = client.get_channel(912057316705189931)
+#     gluid = client.get_guild()
+#     channel = client.get_channel()
 #     await gluid.send(f'Welcome to the server {member.mention}')
 #     await member.send(f'Welcome to the {channel.name} server, {member.mention}')
 
@@ -55,7 +55,7 @@ async def on_message(message):
 # sends message every 1 mins
 @tasks.loop(minutes=1)
 async def my_background_task():
-    channel = client.get_channel(912057316705189931)
+    channel = client.get_channel(CHANNEL-ID)
     await channel.send('TEST!')
     
 @my_background_task.before_loop
